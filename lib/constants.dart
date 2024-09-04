@@ -9,6 +9,6 @@ enum Languages {
   ar,
 }
 
-const String adminId = "VTLPp5OzjmgqztECJRmt3br3eec2";
-const String googleMapsApiKeyAndroid = "AIzaSyCwCOukMeQeAlEZC70tiOVBeTxfl44S1wQ";
-const String googleMapsApiKeyIos = "AIzaSyDi3zA4dZcDT5HZdAcvo739b0WDi0tarAw";
+const String adminId = "";
+const String googleMapsApiKeyAndroid = "";
+const String googleMapsApiKeyIos = "";

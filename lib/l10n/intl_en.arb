@@ -66,5 +66,7 @@
     "minutes": "minutes",
     "enterValidTicketNumber" : "Enter valid ticket number",
     "ticketNumberIsNotValid" : "Check the ticket number, please!",
-    "branch" : "branch"
+    "branch" : "branch",
+    "scan_printers" : "Scan printers",
+    "thisCarLeftTheParking": "This car left the parking"
 }

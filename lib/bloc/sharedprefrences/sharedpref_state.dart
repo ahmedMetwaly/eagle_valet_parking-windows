@@ -1,5 +1,6 @@
 
 
+
 abstract class SettingsStates {}
 
 class SettingsInitial extends SettingsStates {}
@@ -16,5 +17,6 @@ class SettingsLoadedSuccessfully extends SettingsStates{
   final bool?isOpenedBefore;
   final bool? isDark;
   final String? language;
-  SettingsLoadedSuccessfully({this.isOpenedBefore, this.isDark , this.language});
+  final String ? printerName;
+  SettingsLoadedSuccessfully({this.isOpenedBefore, this.isDark , this.language,this.printerName});
 }

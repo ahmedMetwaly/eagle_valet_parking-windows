@@ -1,13 +1,12 @@
 import 'package:eagle_valet_parking/generated/l10n.dart';
 import 'package:eagle_valet_parking/resources/routes.dart';
-import 'package:eagle_valet_parking/view/authentication/screens/signup/screens/verfy_email.dart';
 import 'package:eagle_valet_parking/view/calculate_duration/calculate_duaration.dart';
+import 'package:eagle_valet_parking/view/ticket/initPrinter.dart';
 import 'package:flutter/material.dart';
 
 import '../view/authentication/screens/first_time_opened/first_time_opened.dart';
 import '../view/authentication/screens/login/login.dart';
-import '../view/authentication/screens/login/widgets/forget_password.dart';
-import '../view/authentication/screens/login/widgets/reset_email.dart';
+
 import '../view/home/home.dart';
 import '../view/onboarding/onboarding.dart';
 import '../view/profile/profile.dart';
@@ -20,14 +19,11 @@ class RoutesGeneratour {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.appStarts:
         return MaterialPageRoute(builder: (_) => const AppStarts());
+      case Routes.initPrinter:
+        return MaterialPageRoute(builder: (_) => const InitPrinter());
+
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoarding());
-      case Routes.resetEmail:
-        return MaterialPageRoute(builder: (_) => const ResetEmail());
-      case Routes.forgetPassword:
-        return MaterialPageRoute(builder: (_) => const ForgetPassword());
-      case Routes.verifyEmail:
-        return MaterialPageRoute(builder: (_) => const VerifyEmail());
       case Routes.logIn:
         return MaterialPageRoute(builder: (_) => const LogIn());
       case Routes.home:

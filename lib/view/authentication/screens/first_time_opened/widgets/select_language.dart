@@ -82,7 +82,7 @@ class MyToggleButtons extends StatelessWidget {
       ),
       listener: (BuildContext context, SettingsStates state) {
         if (state is SettingsLoadedSuccessfully) {
-          Navigator.of(context).pushReplacementNamed(Routes.onBoarding);
+          Navigator.of(context).pushReplacementNamed(Routes.initPrinter);
           //printstate.language);
         }
       },

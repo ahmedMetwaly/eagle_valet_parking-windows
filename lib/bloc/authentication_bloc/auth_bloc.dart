@@ -11,21 +11,18 @@ class AuthenticationBloc
     extends Bloc<AuthenticationEvents, AuthenticationStates> {
   AuthenticationBloc() : super(AuthenticationInitialState()) {
     on<SignInWithEmailEvent>(_logIn);
-    on<ForgetPasswordEvent>(_forgetPassword);
-    on<SendEmailVerficationEvent>(_sendEmailVerfication);
     on<SignOutEvent>(_logOut);
     on<AppStarted>(_checkTheUserLogged);
   }
 
   static EmployerModel employer = EmployerModel(
-    uid: "0",
-    name: "",
-    email: "",
-    password: "",
-    imageUrl: "",
-    phoneNumber: "",
-    parkingId: ""
-  );
+      uid: "0",
+      name: "",
+      email: "",
+      password: "",
+      imageUrl: "",
+      phoneNumber: "",
+      parkingId: "");
 
   FutureOr<void> _checkTheUserLogged(
       AppStarted event, Emitter<AuthenticationStates> emit) async {
@@ -69,30 +66,6 @@ class AuthenticationBloc
     }
   }
 
-  FutureOr<void> _forgetPassword(
-      ForgetPasswordEvent event, Emitter<AuthenticationStates> emit) async {
-    try {
-      emit(AuthinticationLoadingState());
-      await FirebaseAuthService.forgotPassword(employer.email ?? "")
-          .then((value) {
-        if (value == true) {
-          emit(LoadedState());
-
-          emit(ForgetPasswordEmailSentState(
-              email: AuthenticationBloc.employer.email ?? ""));
-        } else {
-          emit(LoadedState());
-
-          emit(AuthenticationFailedState(errorMessage: value));
-        }
-      });
-    } catch (error) {
-      emit(LoadedState());
-
-      emit(AuthenticationFailedState(errorMessage: error.toString()));
-    }
-  }
-
   FutureOr<void> _logOut(
       SignOutEvent event, Emitter<AuthenticationStates> emit) async {
     emit(AuthinticationLoadingState());
@@ -100,21 +73,5 @@ class AuthenticationBloc
     emit(LoadedState());
 
     emit(AuthLogedOutState());
-  }
-
-  FutureOr<void> _sendEmailVerfication(SendEmailVerficationEvent event,
-      Emitter<AuthenticationStates> emit) async {
-    try {
-      await FirebaseAuthService.sendEmailVerfication().then((value) {
-        if (value == true) {
-          emit(EmailVerficationSentState(
-              email: AuthenticationBloc.employer.email ?? ""));
-        }
-      });
-    } catch (error) {
-      emit(LoadedState());
-
-      emit(AuthenticationFailedState(errorMessage: error.toString()));
-    }
   }
 }

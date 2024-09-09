@@ -1,5 +1,5 @@
 import 'package:eagle_valet_parking/bloc/parking_cubit/parking_cubit.dart';
-import 'package:eagle_valet_parking/view/printTicket/printTicket.dart';
+import 'package:eagle_valet_parking/view/ticket/initPrinter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../generated/l10n.dart';
@@ -30,7 +30,7 @@ AppBar myAppBar(BuildContext context) {
       ),
       TextButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const PrintTicket()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const InitPrinter()));
           },
           child: Text(
             S.current.printTicket,

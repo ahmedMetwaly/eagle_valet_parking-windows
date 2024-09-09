@@ -7,21 +7,28 @@ class CalculationRepo {
 
   Future calculateDuration(
       {required String parkingId, required int ticketNumber}) async {
-    await _firestore
-        .collection('parkings')
-        .doc(parkingId)
-        .get()
-        .then((value) async {
-      if (value.data() != null) {
-        ParkingModel parking = ParkingModel.fromJson(value.data()!);
-        Map<String, dynamic> fieldsToUpdate = {
-          "emptyParking": parking.emptyParking! + 1,
-          "occupidParking": parking.occupidParking! - 1,
-        };
-        await ParkingRepo()
-            .updateFields(parkingId: parkingId, fieldsToUpdate: fieldsToUpdate);
-        
-      }
-    });
+    try {
+      await _firestore
+          .collection('parkings')
+          .doc(parkingId)
+          .get()
+          .then((value) async {
+        if (value.data() != null) {
+          ParkingModel parking = ParkingModel.fromJson(value.data()!);
+          Map<String, dynamic> fieldsToUpdate = {
+            "emptyParking": parking.emptyParking! + 1,
+            "occupidParking": parking.occupidParking! - 1,
+          };
+          await ParkingRepo()
+              .updateFields(
+                  parkingId: parkingId, fieldsToUpdate: fieldsToUpdate)
+              .then((_) {
+            print("updates done");
+          });
+        }
+      });
+    } catch (error) {
+      throw Exception(error);
+    }
   }
 }

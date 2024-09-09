@@ -66,6 +66,8 @@
     "minutes": "دقيقة",
     "enterValidTicketNumber": "ادخل رقم التذكرة صحيحا",
     "ticketNumberIsNotValid" : "من فضلك تأكد من رقم التذكرة",
-    "branch" : "فرع"
+    "branch" : "فرع",
+    "scan_printers" : "ابحث عن الطباعات",
+    "thisCarLeftTheParking": "غادرت هذه السيارة موقف السيارات"
 
 }

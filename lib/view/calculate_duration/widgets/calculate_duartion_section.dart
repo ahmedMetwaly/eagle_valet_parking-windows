@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../repositiries/parking_repos/print_repo.dart';
+import '../../../repositiries/time/time_repo.dart';
 import '../../../resources/values_manager.dart';
 import 'input_number.dart';
 
@@ -21,7 +23,7 @@ class CalculateDurationSection extends StatelessWidget {
     return BlocBuilder<CalculateDurationCubit, CalculateDurationStates>(
       builder: (BuildContext context, CalculateDurationStates state) =>
           Container(
-        height: size.height * 0.30,
+        height: size.height * 0.35,
         width: size.width * 0.4,
         padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
@@ -63,11 +65,44 @@ class CalculateDurationSection extends StatelessWidget {
                         await context
                             .read<CalculateDurationCubit>()
                             .calculateDuration(
-                                ticketNumber: int.parse(
-                                    ticketNumberController.text.trim()))
-                            .then((_) async => await context
+                              ticketNumber:
+                                  int.parse(ticketNumberController.text.trim()),
+                              parkingFee: context
+                                  .read<ParkingCubit>()
+                                  .parking
+                                  .price
+                                  .toString(),
+                              /* duration: HandlingTime().formatDurationPrint(
+                                    Duration(
+                                        minutes: context
+                                            .read<CalculateDurationCubit>()
+                                            .ticket
+                                            .parkingDurationInMinutes!)) */
+                            )
+                            .then((value) async {
+                          print(value);
+                          //TODO:: make the reciept print when it calculation done
+                          await PrintTicketRepo()
+                              .generateReceipt(
+                                  ticketNumber:
+                                      ticketNumberController.text.trim(),
+                                  parkingFee: context
+                                      .read<ParkingCubit>()
+                                      .parking
+                                      .price
+                                      .toString(),
+                                  duration: HandlingTime().formatDurationPrint(
+                                      Duration(
+                                          minutes: context
+                                              .read<CalculateDurationCubit>()
+                                              .ticket
+                                              .parkingDurationInMinutes!)))
+                              .then((_) async {
+                            await context
                                 .read<ParkingCubit>()
-                                .readParkingData());
+                                .readParkingData();
+                          });
+                        });
                       }
                     },
                     style: ButtonStyle(

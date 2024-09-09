@@ -1,5 +1,4 @@
 import 'package:eagle_valet_parking/models/employer_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,7 +7,6 @@ import '../../../../../resources/string_manager.dart';
 import '../../../../../resources/values_manager.dart';
 
 import '../../../../bloc/authentication_bloc/auth_states.dart';
-import '../../../../constants.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../resources/routes.dart';
 import '../login/widgets/email.dart';
@@ -36,7 +34,9 @@ class SignUp extends StatelessWidget {
           listener: (BuildContext context, AuthenticationStates state) {
             //printstate);
             if (state is AuthenticationSuccessState) {
-              final currentUser = FirebaseAuth.instance.currentUser;
+              Navigator.pushReplacementNamed(context, Routes.home);
+
+              /*  final currentUser = FirebaseAuth.instance.currentUser;
               if (state.authenticationPlatform ==
                       AuthenticationPlatform.google ||
                   state.authenticationPlatform ==
@@ -48,7 +48,7 @@ class SignUp extends StatelessWidget {
                 } else {
                   Navigator.pushReplacementNamed(context, Routes.verifyEmail);
                 }
-              }
+              } */
             }
             if (state is AuthinticationLoadingState) {
               showDialog(
@@ -147,14 +147,13 @@ class SignUp extends StatelessWidget {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             AuthenticationBloc.employer = EmployerModel(
-                              name: nameController.text,
-                              email: emailController.text,
-                              password: passwordController.text,
-                              imageUrl: AuthenticationBloc.employer.imageUrl,
-                              phoneNumber: phoneNumber.text,
-                              //TODO:: update the parkingId from parking cupit
-                              parkingId: ""
-                            );
+                                name: nameController.text,
+                                email: emailController.text,
+                                password: passwordController.text,
+                                imageUrl: AuthenticationBloc.employer.imageUrl,
+                                phoneNumber: phoneNumber.text,
+                                //TODO:: update the parkingId from parking cupit
+                                parkingId: "");
                             context
                                 .read<AuthenticationBloc>()
                                 .add(SignUpEvent());

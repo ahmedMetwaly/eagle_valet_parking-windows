@@ -1,5 +1,6 @@
 import 'package:eagle_valet_parking/bloc/calculate_duration_bloc/calculate_duration_cubit.dart';
 import 'package:eagle_valet_parking/bloc/parking_cubit/parking_cubit.dart';
+import 'package:eagle_valet_parking/bloc/print_cubit/print_cubit.dart';
 import 'package:eagle_valet_parking/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,7 @@ void main() async {
       BlocProvider(create: (context) => UserBloc()),
       BlocProvider(create: (context) => ParkingCubit()),
       BlocProvider(create: (context) => CalculateDurationCubit()),
+      BlocProvider(create: (context) => PrintCubit()),
     ],
     child: const MyApp(),
   ));

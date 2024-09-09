@@ -102,11 +102,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "printTicket": MessageLookupByLibrary.simpleMessage("Print Ticket"),
         "requiredField": MessageLookupByLibrary.simpleMessage("Required field"),
         "resendEmail": MessageLookupByLibrary.simpleMessage("Resend email"),
+        "scan_printers": MessageLookupByLibrary.simpleMessage("Scan printers"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "sent": MessageLookupByLibrary.simpleMessage("Sent"),
         "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+        "thisCarLeftTheParking":
+            MessageLookupByLibrary.simpleMessage("This car left the parking"),
         "ticketNumber": MessageLookupByLibrary.simpleMessage("Ticket Number"),
         "ticketNumberIsNotValid": MessageLookupByLibrary.simpleMessage(
             "Check the ticket number, please!"),

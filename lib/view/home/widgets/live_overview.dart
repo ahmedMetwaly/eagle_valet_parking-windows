@@ -4,7 +4,6 @@ import 'package:eagle_valet_parking/generated/l10n.dart';
 import 'package:eagle_valet_parking/view/home/widgets/show_today_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../resources/values_manager.dart';
 import 'live_preview_content.dart';
 
@@ -16,9 +15,13 @@ class LiveOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // context.read<ParkingCubit>().isNewDay();
+    // callAtTime();
+    context.read<ParkingCubit>().callAtTime();
     return BlocBuilder<ParkingCubit, ParkingStates>(
         builder: (BuildContext context, ParkingStates state) {
-          //printstate);
+      //printstate);
+
       if (state is InitialParkingState) {
         context.read<ParkingCubit>().readParkingData();
       }
@@ -27,7 +30,7 @@ class LiveOverview extends StatelessWidget {
             height: size.height * 0.125,
             child: const Center(child: CircularProgressIndicator()));
       }
-       
+
       if (state is ParkingLoadedState) {
         return Container(
           height: size.height * 0.125,

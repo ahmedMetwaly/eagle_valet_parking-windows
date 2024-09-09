@@ -729,6 +729,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Scan printers`
+  String get scan_printers {
+    return Intl.message(
+      'Scan printers',
+      name: 'scan_printers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This car left the parking`
+  String get thisCarLeftTheParking {
+    return Intl.message(
+      'This car left the parking',
+      name: 'thisCarLeftTheParking',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

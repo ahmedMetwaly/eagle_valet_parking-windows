@@ -104,10 +104,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "requiredField": MessageLookupByLibrary.simpleMessage("مطلوب"),
         "resendEmail":
             MessageLookupByLibrary.simpleMessage("اعادة ارسال بريد الكترونى"),
+        "scan_printers":
+            MessageLookupByLibrary.simpleMessage("ابحث عن الطباعات"),
         "search": MessageLookupByLibrary.simpleMessage("ابحث"),
         "selectLanguage": MessageLookupByLibrary.simpleMessage("إختر اللغة"),
         "sent": MessageLookupByLibrary.simpleMessage("أرسلت"),
         "skip": MessageLookupByLibrary.simpleMessage("تخطى"),
+        "thisCarLeftTheParking": MessageLookupByLibrary.simpleMessage(
+            "غادرت هذه السيارة موقف السيارات"),
         "ticketNumber": MessageLookupByLibrary.simpleMessage("رقم التذكرة"),
         "ticketNumberIsNotValid":
             MessageLookupByLibrary.simpleMessage("من فضلك تأكد من رقم التذكرة"),

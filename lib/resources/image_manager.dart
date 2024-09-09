@@ -2,7 +2,8 @@ const String path = "assets/images/";
 
 class ImageManager {
   //Splash Screen
-  static const splash = "${path}splash.png";
+  static const splash = "${path}logo.png";
+  static const printLogo = "${path}printLogo.jpg";
   //onboardingScreen
   static const onboarding1 = "${path}onboarding1.png";
   static const onboarding2 = "${path}onboarding2.png";

@@ -1,6 +1,7 @@
 class Routes {
   static const String splashScreen = "/";
   static const String appStarts = "/appStarts";
+  static const String initPrinter = "/initTicket";
   static const String onBoarding = "/onBoarding";
   static const String logIn = "/logIn";
   static const String resetEmail = "/resetEmail";

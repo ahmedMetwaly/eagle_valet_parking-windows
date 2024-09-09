@@ -7,28 +7,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/live_overview.dart';
 import 'widgets/mainFunctions.dart';
 import 'widgets/myAppBar.dart';
+import 'widgets/my_bottom_navigation_bar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
+//TODO:: when new day is come check if the ticket number > total number customer of day add to  number ticket the current day -1 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return BlocConsumer<ParkingCubit, ParkingStates>(
+     return BlocConsumer<ParkingCubit, ParkingStates>(
       builder: (BuildContext context, ParkingStates state) {
         return Scaffold(
             appBar: myAppBar(context),
-            bottomNavigationBar: Container(
-              height: size.height * 0.05,
-              color: Theme.of(context).colorScheme.primary,
-              child: Center(
-                child: Text(
-                  S.current.copyRight,
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.surface),
-                ),
-              ),
-            ),
+            bottomNavigationBar: MyBottomNavigationBar(size: size),
             body: Padding(
               padding: const EdgeInsets.all(PaddingManager.pMainPadding),
               child: Column(
